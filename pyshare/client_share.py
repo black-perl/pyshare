@@ -23,7 +23,7 @@ def main():
     buff_size=1024*1024*1
     start=time.time()
     buffer=client.recv(buff_size)
-    while len(buffer)>0:
+    while len(buffer)>0: # buffer will be zero if either the server has shut down or the file has ended .. yeah the connection is closed
        fob.write(buffer)
        data_now+=len(buffer)
        print (data_now/(1024*1024)),"mb------received------\n"
